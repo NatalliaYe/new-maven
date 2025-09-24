@@ -1,6 +1,6 @@
 package org.example.furniture;
 
-public class ClothesCommode extends furniture {
+public class ClothesCommode extends Furniture {
     private double height;
     private double width;
     private String color;

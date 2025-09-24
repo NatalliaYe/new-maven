@@ -1,6 +1,6 @@
 package org.example.furniture;
 
-public class furniture {
+public class Furniture {
     protected String types;
 
     public void store(String things) {

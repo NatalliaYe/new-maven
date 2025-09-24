@@ -42,12 +42,12 @@ public class Main {
         System.out.println(clothesCommode.getObjectInfo());
 
 
-        ShoesCommode NewOne = new ShoesCommode();
-        NewOne.store("shoes");
-        NewOne.keepShoes();
+        ShoesCommode newOne = new ShoesCommode();
+        newOne.store("shoes");
+        newOne.keepShoes();
 
-        ClothesCommode NewTwo = new ClothesCommode();
-        NewTwo.keepClothes();
+        ClothesCommode newTwo = new ClothesCommode();
+        newTwo.keepClothes();
 
     }
     public static int divide (int height, int length) {
@@ -62,7 +62,7 @@ public class Main {
         return  height + length;
     }
 
-    public static String MyInfo() {
+    public static String myInfo() {
         MyInfo randomInfo = new MyInfo();
         randomInfo.getObjectInfo();
         System.out.println(randomInfo.getObjectInfo());
@@ -70,19 +70,19 @@ public class Main {
     }
 
 
-    static class randomCommode {
+    static class RandomCommode {
         double height;
         double width;
         String color;
 
         public static void main(String[] args) throws NumberFormatException, FileNotFoundException {
-            randomCommode clothesCommode = new randomCommode();
+            RandomCommode clothesCommode = new RandomCommode();
             clothesCommode.color = "White";
             clothesCommode.height = 8.1;
             clothesCommode.width = 6.5;
 
 
-            randomCommode shoesCommode = new randomCommode();
+            RandomCommode shoesCommode = new RandomCommode();
             shoesCommode.color = "Brown";
             shoesCommode.height = 7.7;
             shoesCommode.width = 5.5;
@@ -94,7 +94,7 @@ public class Main {
             System.out.println("2. Создать новый объект");
 
             int mainChoice = Integer.parseInt(scanner.nextLine());
-            randomCommode selectedCommode = null;
+            RandomCommode selectedCommode = null;
 
             if (mainChoice == 1) {
                 System.out.println("Какая вам нужна мебель?");
@@ -106,8 +106,11 @@ public class Main {
 
                 if (choice == 1) {
                     selectedCommode = clothesCommode;
-                } else {
+                } else if (choice==2) {
                     selectedCommode = shoesCommode;
+                } else {
+                    System.out.println("Неверный выбор. Выберите 1 или 2.");
+                    return;
                 }
 
                 System.out.println("Какие свойства должны быть у комода?");
@@ -136,7 +139,7 @@ public class Main {
                     }
                 }
             } else if (mainChoice == 2) {
-                selectedCommode = new randomCommode();
+                selectedCommode = new RandomCommode();
 
                 System.out.println("Введите height:");
                 selectedCommode.height = Double.parseDouble(scanner.nextLine());
@@ -166,7 +169,7 @@ public class Main {
             }
 
             // Чтение объектов из файла
-            ArrayList<randomCommode> commodes = new ArrayList<>();
+            ArrayList<RandomCommode> commodes = new ArrayList<>();
             File testFile = new File("D:\\newTestFile4.txt");
 
             try (Scanner fileScanner = new Scanner(testFile)) {
@@ -175,7 +178,7 @@ public class Main {
                     String[] parts = line.split(",");
 
                     if (parts.length == 3) {
-                        randomCommode commodeFromFile = new randomCommode();
+                        RandomCommode commodeFromFile = new RandomCommode();
                         commodeFromFile.height = Double.parseDouble(parts[0]);
                         commodeFromFile.width = Double.parseDouble(parts[1]);
                         commodeFromFile.color = parts[2];

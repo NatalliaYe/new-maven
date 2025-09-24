@@ -33,7 +33,7 @@ public class MyTestOne {
 
     @Test(groups = "positive")
     public void myTest() {
-        String result = Main.MyInfo();
+        String result = Main.myInfo();
         System.out.println("CommodeType- clothesCommode." + " Number of drawers is 4.");
     }
 
